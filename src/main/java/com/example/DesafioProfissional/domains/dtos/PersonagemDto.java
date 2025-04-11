@@ -1,7 +1,10 @@
 package com.example.DesafioProfissional.domains.dtos;
+import com.example.DesafioProfissional.domains.ItemMagico;
+import com.example.DesafioProfissional.domains.Personagem;
 import com.example.DesafioProfissional.domains.enums.ClassePersonagem;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PersonagemDto {
 
@@ -25,6 +28,28 @@ public class PersonagemDto {
     }
 
     public PersonagemDto() {
+    }
+
+    public PersonagemDto(Personagem personagem) {
+        this.nome = personagem.getNome();
+        this.nomeAventureiro = personagem.getNomeAventureiro();
+        this.classe = personagem.getClasse();
+        this.level = personagem.getLevel();
+        this.forca = personagem.getForca();
+        this.defesa = personagem.getDefesa();
+        if (personagem.getItensMagicos() != null) {
+            this.itensMagicos = personagem.getItensMagicos().stream().map(item -> {
+
+                ItemMagicoDto itemDto = new ItemMagicoDto();
+
+                itemDto.setNome(item.getNome());
+                itemDto.setTipoItem(item.getTipoItem());
+                itemDto.setForca(item.getForca());
+                itemDto.setDefesa(item.getDefesa());
+
+                return itemDto;
+            }).collect(Collectors.toList());
+        }
     }
 
     public Long getId() {

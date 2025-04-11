@@ -44,7 +44,6 @@ public class Personagem {
         this.level = personagemDto.getLevel();
         this.forca = personagemDto.getForca();
         this.defesa = personagemDto.getDefesa();
-
         if (personagemDto.getItensMagicos() != null) {
             this.itensMagicos = personagemDto.getItensMagicos().stream().map(itemDto -> {
                 ItemMagico item = new ItemMagico();
