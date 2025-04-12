@@ -1,8 +1,10 @@
 package com.example.DesafioProfissional.domains;
+
 import com.example.DesafioProfissional.domains.dtos.ItemMagicoDto;
 import com.example.DesafioProfissional.domains.enums.TipoItem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import java.util.Objects;
 
 @Entity

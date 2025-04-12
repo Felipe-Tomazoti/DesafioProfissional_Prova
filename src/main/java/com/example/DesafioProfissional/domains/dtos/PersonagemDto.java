@@ -1,7 +1,8 @@
 package com.example.DesafioProfissional.domains.dtos;
-import com.example.DesafioProfissional.domains.ItemMagico;
+
 import com.example.DesafioProfissional.domains.Personagem;
 import com.example.DesafioProfissional.domains.enums.ClassePersonagem;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

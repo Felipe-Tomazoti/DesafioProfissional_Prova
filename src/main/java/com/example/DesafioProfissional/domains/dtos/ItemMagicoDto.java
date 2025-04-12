@@ -1,5 +1,7 @@
 package com.example.DesafioProfissional.domains.dtos;
+
 import com.example.DesafioProfissional.domains.enums.TipoItem;
+
 public class ItemMagicoDto {
 
     private Long id;

@@ -1,4 +1,5 @@
 package com.example.DesafioProfissional.services;
+
 import com.example.DesafioProfissional.domains.ItemMagico;
 import com.example.DesafioProfissional.domains.Personagem;
 import com.example.DesafioProfissional.domains.dtos.ItemMagicoDto;
@@ -48,6 +49,7 @@ public class PersonagemService {
     }
 
     public Personagem update(@PathVariable Long id, @RequestBody PersonagemDto personagemDto) {
+        personagemValidacao.verificarItemAmuleto(personagemDto.getItensMagicos());
         Personagem personagem = personagemRepository.findById(id).orElse(null);
         personagem.setNome(personagemDto.getNome());
         personagem.setNomeAventureiro(personagemDto.getNomeAventureiro());
@@ -56,7 +58,6 @@ public class PersonagemService {
         personagem.setForca(personagemDto.getForca());
         personagem.setDefesa(personagemDto.getDefesa());
         personagem.setItensMagicos(personagem.getItensMagicos());
-        System.out.println(personagem.getItensMagicos());
         if (personagemDto.getItensMagicos() != null) {
             for (ItemMagicoDto itemMagicoDto : personagemDto.getItensMagicos()) {
                 itemMagicoValidacao.verificarPontos(itemMagicoDto.getForca(), itemMagicoDto.getDefesa());
@@ -83,7 +84,7 @@ public class PersonagemService {
     public ItemMagico getAmuleto(Long id) {
         Personagem personagem = getById(id);
         for (ItemMagico item : personagem.getItensMagicos()) {
-            if (item.getTipoItem() == TipoItem.AMULETO){
+            if (item.getTipoItem() == TipoItem.AMULETO) {
                 return item;
             }
         }

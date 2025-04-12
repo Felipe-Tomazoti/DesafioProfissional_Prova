@@ -1,7 +1,9 @@
 package com.example.DesafioProfissional.domains;
+
 import com.example.DesafioProfissional.domains.dtos.PersonagemDto;
 import com.example.DesafioProfissional.domains.enums.ClassePersonagem;
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

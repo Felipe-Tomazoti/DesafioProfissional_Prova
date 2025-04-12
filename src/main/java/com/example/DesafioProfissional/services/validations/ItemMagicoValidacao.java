@@ -11,7 +11,7 @@ public class ItemMagicoValidacao {
         if (itemMagicoDto.getTipoItem() == TipoItem.ARMA) {
             itemMagicoDto.setDefesa(0);
         }
-        if (itemMagicoDto.getTipoItem() == TipoItem.ARMADURA){
+        if (itemMagicoDto.getTipoItem() == TipoItem.ARMADURA) {
             itemMagicoDto.setForca(0);
         }
         return itemMagicoDto;
@@ -19,13 +19,16 @@ public class ItemMagicoValidacao {
 
     public void verificarPontos(Integer forca, Integer defesa) {
         if (forca < 0 || defesa < 0) {
-            throw new PersonagemException("Força ou defesa não pode ser menor que 0!");
+            throw new PersonagemException("Força ou defesa do Item Mágico, não pode ser menor que 0!");
         }
         if (forca + defesa > 10) {
-            throw new PersonagemException("A soma de força e defesa, deve ser de no máximo 10 pontos!");
+            throw new PersonagemException("A soma de força e defesa do Item Mágico, deve ser de no máximo 10 pontos!");
         }
         if (forca == 0 && defesa == 0) {
-            throw new PersonagemException("Não podem existir Itens com zero de Defesa e zero de Força!");
+            throw new PersonagemException("O Item Mágico não pode conter zero de Defesa e zero de Força!");
+        }
+        if (forca + defesa != 10) {
+            throw new PersonagemException("A soma de força e defesa do Item Mágico, deve ser de 10 pontos!");
         }
     }
 }

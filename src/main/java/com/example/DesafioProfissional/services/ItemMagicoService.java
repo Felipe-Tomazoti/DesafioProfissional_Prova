@@ -1,4 +1,5 @@
 package com.example.DesafioProfissional.services;
+
 import com.example.DesafioProfissional.domains.ItemMagico;
 import com.example.DesafioProfissional.domains.Personagem;
 import com.example.DesafioProfissional.domains.dtos.ItemMagicoDto;
@@ -39,7 +40,6 @@ public class ItemMagicoService {
     }
 
     public ItemMagico update(@PathVariable Long id, @RequestBody ItemMagicoDto itemMagicoDto) {
-
         itemMagicoValidacao.verificarPontos(itemMagicoDto.getForca(), itemMagicoDto.getDefesa());
         ItemMagicoDto item = itemMagicoValidacao.verificarTipoItemMagico(itemMagicoDto);
         ItemMagico itemMagico = itemMagicoRepository.findById(id).orElse(null);

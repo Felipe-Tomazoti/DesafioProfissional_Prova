@@ -1,4 +1,5 @@
 package com.example.DesafioProfissional.controllers;
+
 import com.example.DesafioProfissional.domains.ItemMagico;
 import com.example.DesafioProfissional.domains.dtos.ItemMagicoDto;
 import com.example.DesafioProfissional.services.ItemMagicoService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +18,6 @@ import java.util.Map;
 @RestController
 @RequestMapping(path = "itemMagico")
 public class ItemMagicoController {
-
     @Autowired
     private ItemMagicoService itemMagicoService;
 
@@ -42,13 +43,13 @@ public class ItemMagicoController {
                             examples = @ExampleObject(
                                     name = "Exemplo de item mágico",
                                     value = """
-                        {
-                            "nome": "ARMADURA do Felipe",
-                            "tipoItem": "ARMADURA",
-                            "forca": 0,
-                            "defesa": 10
-                        }
-                        """
+                                            {
+                                                "nome": "ARMADURA do Felipe",
+                                                "tipoItem": "ARMADURA",
+                                                "forca": 0,
+                                                "defesa": 10
+                                            }
+                                            """
                             )
                     )
             )
