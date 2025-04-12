@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  desafio-profissional:
+    container_name: desafio-profissional
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
